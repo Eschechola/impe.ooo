@@ -1,5 +1,5 @@
 import express from "express";
-import WordController from "../controllers/wordController";
+import WordController from "../controllers/word.controller";
 
 const router = express.Router();
 const wordController = new WordController();
