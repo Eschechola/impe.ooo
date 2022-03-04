@@ -3,6 +3,7 @@ import * as dotenv from "dotenv";
 import { Sequelize } from "sequelize-typescript";
 
 import WordModel from "../models/word.model";
+import UserModel from "../models/user.model";
 
 dotenv.config();
 
@@ -13,7 +14,7 @@ const context = new Sequelize({
   password: process.env.DB_PASSWORD as string,
   database: process.env.DB_NAME as string,
   logging: false,
-  models: [WordModel],
+  models: [WordModel, UserModel],
 });
 
 export default context;

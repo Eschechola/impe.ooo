@@ -1,5 +1,4 @@
-import { UpdatedAt } from "sequelize-typescript";
-import Word from "../../interfaces/Word";
+import Word from "../../entities/Word";
 import context from "../context/context";
 import WordModel from "../models/word.model";
 
