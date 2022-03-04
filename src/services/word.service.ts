@@ -1,7 +1,15 @@
 import Word from "../interfaces/Word";
-import { getAllAsync } from "../infrastrucutre/repositories/word.repository";
+import { getAllAsync, createAsync } from "../infrastrucutre/repositories/word.repository";
 
 export const getRandomWordAsync = async (): Promise<Word> => {
     const words = await getAllAsync();
-    return words[0];
+    return getRandomElementFromArray(words);
+}
+
+export const createWordAsync 
+    = async (word: String): Promise<Word> => createAsync(word)
+
+const getRandomElementFromArray = (words: Word[]): Word => {
+    const randomIndice = Math.floor(Math.random() * words.length);
+    return words[randomIndice];
 }
