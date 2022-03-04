@@ -4,11 +4,11 @@ import * as dotenv from "dotenv";
 dotenv.config();
 const SECRET = process.env.TOKEN_SECRET as string;
 
-export const generateToken = (id: Number, name: String, email: String): String => {
+export const generateToken = (id: Number, username: String, email: String): String => {
     const payload =
     {
         id: id,
-        name: name,
+        username: username,
         email: email,
     };
     
@@ -30,9 +30,8 @@ export const verifyToken = (request: any, response: any, next: any) => {
             data: null
         });
     
-    // removes "Bearer" word and mantains only token
+    
     token = token.split(' ')[1];
-
     jwt.verify(token, SECRET, (err: any, decoded: any) => {
         if (err)
             response.status(401).send({
